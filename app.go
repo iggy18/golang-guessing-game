@@ -23,10 +23,10 @@ func game() {
 	var active bool = true
 	var hint bool = false
 	var guessesLeft int = 8
-	var sguessesleft = strconv.Itoa(guessesLeft)
+	var correctAnswer int = rand.Intn(20)
+	var scorrectAnswer = strconv.Itoa(correctAnswer)
 	for active {
-		var correctAnswer int = rand.Intn(20)
-		var scorrectAnswer = strconv.Itoa(correctAnswer)
+		var sguessesleft = strconv.Itoa(guessesLeft)
 		fmt.Println("guess a number between 1 and 20")
 		var guess int
 		fmt.Scanln(&guess)
@@ -43,11 +43,11 @@ func game() {
 					fmt.Println("that's not it. the number is lower. guess aagin")
 				}
 			}
-			if  guessesLeft == 0 {
+			if guessesLeft == 0 {
 				fmt.Println("sorry, you didn't guess the number in time. you've lost.")
 				break;
 			}
-			if  guessesLeft <= 3 && hint == false{
+			if guessesLeft <= 3 && hint == false{
 				fmt.Println("you're alomost out of turns. would you like a hint?")
 				var activateHints string
 				fmt.Scanln(&activateHints)
